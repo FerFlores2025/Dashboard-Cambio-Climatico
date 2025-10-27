@@ -727,7 +727,6 @@ tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
     " Monitoreo en Tiempo Real",
     " Comparativas Regionales",
     " Proyecciones y Modelos",
-    " Reporte Completo"
 ])
 
 
@@ -1357,4 +1356,5 @@ with tab5:
             st.write("3. *Invertir en adaptación climática*")
             st.write("4. *Promover energías renovables*")
             st.write("5. *Desarrollar infraestructura resiliente*")
+
 
