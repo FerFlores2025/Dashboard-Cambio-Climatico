@@ -721,7 +721,7 @@ st.markdown("</div>", unsafe_allow_html=True)
 
 # TABS PRINCIPALES
 
-tab1, tab2, tab3, tab4, tab5, tab6 = st.tabs([
+tab1, tab2, tab3, tab4, tab5 = st.tabs([
     " Resumen Ejecutivo",
     " Análisis Histórico", 
     " Monitoreo en Tiempo Real",
@@ -1356,5 +1356,6 @@ with tab5:
             st.write("3. *Invertir en adaptación climática*")
             st.write("4. *Promover energías renovables*")
             st.write("5. *Desarrollar infraestructura resiliente*")
+
 
 
