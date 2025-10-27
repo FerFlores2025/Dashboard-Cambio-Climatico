@@ -1316,3 +1316,45 @@ with tab4:
             
             st.plotly_chart(fig_hemisferio, use_container_width=True)
 
+# TAB 5  RESUMEN ESTADISTICO Y CONCLUSIONES 
+
+with tab5:
+    st.header(" Resumen Estadístico y Conclusiones")
+
+    col1, col2, col3 = st.columns(3)
+
+    aumento_total = temp_2050_pred - temp_1990
+
+    with col1:
+        st.subheader(" Tendencias Históricas")
+        st.write(f"*Aumento de temperatura (1990-2024):* {cambio_temp:.2f}°C")
+        st.write(f"*Tasa promedio:* {(cambio_temp/34):.3f}°C por año")
+        st.write(f"*Variabilidad:* {df[df['año'] >= 2020]['temperatura'].std():.2f}°C")
+
+    with col2:
+        st.subheader(" Proyecciones 2050")
+        st.write(f"*Temperatura estimada 2050:* {temp_2050_pred:.2f}°C")
+        st.write(f"*Aumento total (1990-2050):* {aumento_total:.2f}°C")
+        st.write(f"*Precisión del modelo:* {score*100:.1f}%")
+
+    with col3:
+        st.subheader(" Datos del Análisis")
+        st.write(f"*Ciudades analizadas:* {len(CIUDADES_MUNDIALES)}")
+        st.write(f"*Período histórico:* 1990-2024")
+        st.write(f"*Registros totales:* {len(df):,}")
+
+    st.markdown("---")
+    if st.sidebar.button(" Generar Reporte Ejecutivo"):
+        with st.expander(" Reporte Ejecutivo - Cambio Climático", expanded=True):
+            st.subheader("Hallazgos Principales")
+            st.write(f"*Tendencia de Calentamiento:* {aumento_total:.2f}°C de aumento proyectado (1990-2050)")
+            st.write(f"*Tasa Actual:* {(cambio_temp/34):.3f}°C por año")
+            st.write(f"*Impacto Regional:* Variación de {df_predicciones[df_predicciones['año'] == 2050]['temperatura'].std():.2f}°C entre regiones")
+
+            st.subheader("Recomendaciones")
+            st.write("1. *Implementar políticas de mitigación inmediatas*")
+            st.write("2. *Fortalecer sistemas de alerta temprana*")
+            st.write("3. *Invertir en adaptación climática*")
+            st.write("4. *Promover energías renovables*")
+            st.write("5. *Desarrollar infraestructura resiliente*")
+
